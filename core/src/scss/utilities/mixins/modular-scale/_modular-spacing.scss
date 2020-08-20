@@ -29,7 +29,7 @@
 
   @for $i from 1 through $number-bp {
 
-    if($i <= 2 ) {
+    @if ($i <= 2 ) {
     // mobile breakpoints xs and sm
     // use different calculations:
       @if length($steps) == 1 {
@@ -80,12 +80,11 @@
       @else if length($steps) > 4 or length($steps) == 0 {
         @error '$steps should have 1 to 4 values';
       }
+
     }
+    @else {
 
 
-
-
-    } else {
       /// Get modular-spacing base value for current breakpoint.
       $current-base: get-modular-spacing-base(nth($bp-list, $i));
       /// Initialize $previous_base.
@@ -151,6 +150,6 @@
           }
         }
       }
-    }
-  } // Katria adding if/else for if it's mobile size
+    } // Katria adding if/else for if it's mobile size
+  }
 }
